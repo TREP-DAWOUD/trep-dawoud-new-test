@@ -1,0 +1,142 @@
+{
+  "ar": {
+    "nav": {
+      "home": "الرئيسية",
+      "about": "من نحن",
+      "services": "خدماتنا",
+      "destinations": "الوجهات",
+      "trips": "الرحلات",
+      "courses": "الدورات",
+      "blog": "المدونة",
+      "contact": "تواصل معنا",
+      "login": "دخول",
+      "register": "تسجيل"
+    },
+    "buttons": {
+      "bookNow": "احجز الآن",
+      "learnMore": "تعرف أكثر",
+      "readMore": "اقرأ المزيد",
+      "subscribe": "اشترك الآن",
+      "download": "تحميل",
+      "close": "إغلاق",
+      "submit": "إرسال",
+      "cancel": "إلغاء",
+      "save": "حفظ",
+      "delete": "حذف",
+      "edit": "تعديل"
+    },
+    "hero": {
+      "title": "اكتشف عالم المغامرة",
+      "subtitle": "رحلات تسلق جبال آمنة وممتعة مع أفضل المرشدين المحترفين",
+      "cta": "ابدأ رحلتك الآن"
+    },
+    "search": {
+      "placeholder": "ابحث عن رحلة أو دورة...",
+      "noResults": "لم يتم العثور على نتائج"
+    },
+    "messages": {
+      "success": "تم بنجاح",
+      "error": "حدث خطأ",
+      "warning": "تحذير",
+      "info": "معلومة",
+      "loading": "جاري التحميل...",
+      "confirming": "هل أنت متأكد؟"
+    },
+    "validation": {
+      "required": "هذا الحقل مطلوب",
+      "invalidEmail": "بريد إلكتروني غير صحيح",
+      "invalidPhone": "رقم هاتف غير صحيح",
+      "passwordTooShort": "كلمة المرور قصيرة جداً",
+      "passwordMismatch": "كلمات المرور غير متطابقة"
+    },
+    "auth": {
+      "login": "دخول",
+      "register": "تسجيل جديد",
+      "logout": "خروج",
+      "forgotPassword": "هل نسيت كلمة المرور؟",
+      "rememberMe": "تذكرني",
+      "createAccount": "إنشاء حساب جديد",
+      "alreadyHaveAccount": "هل لديك حساب بالفعل؟",
+      "loginWith": "دخول باستخدام"
+    },
+    "footer": {
+      "about": "من نحن",
+      "services": "الخدمات",
+      "privacy": "سياسة الخصوصية",
+      "terms": "شروط الاستخدام",
+      "contact": "اتصل بنا",
+      "followUs": "تابعنا",
+      "allRightsReserved": "جميع الحقوق محفوظة"
+    }
+  },
+  "en": {
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      "services": "Services",
+      "destinations": "Destinations",
+      "trips": "Trips",
+      "courses": "Courses",
+      "blog": "Blog",
+      "contact": "Contact",
+      "login": "Login",
+      "register": "Register"
+    },
+    "buttons": {
+      "bookNow": "Book Now",
+      "learnMore": "Learn More",
+      "readMore": "Read More",
+      "subscribe": "Subscribe Now",
+      "download": "Download",
+      "close": "Close",
+      "submit": "Submit",
+      "cancel": "Cancel",
+      "save": "Save",
+      "delete": "Delete",
+      "edit": "Edit"
+    },
+    "hero": {
+      "title": "Discover Your Adventure",
+      "subtitle": "Safe and enjoyable mountain climbing expeditions with professional guides",
+      "cta": "Start Your Journey"
+    },
+    "search": {
+      "placeholder": "Search for trips or courses...",
+      "noResults": "No results found"
+    },
+    "messages": {
+      "success": "Success",
+      "error": "Error occurred",
+      "warning": "Warning",
+      "info": "Information",
+      "loading": "Loading...",
+      "confirming": "Are you sure?"
+    },
+    "validation": {
+      "required": "This field is required",
+      "invalidEmail": "Invalid email address",
+      "invalidPhone": "Invalid phone number",
+      "passwordTooShort": "Password too short",
+      "passwordMismatch": "Passwords do not match"
+    },
+    "auth": {
+      "login": "Login",
+      "register": "Create Account",
+      "logout": "Logout",
+      "forgotPassword": "Forgot Password?",
+      "rememberMe": "Remember me",
+      "createAccount": "Create a new account",
+      "alreadyHaveAccount": "Already have an account?",
+      "loginWith": "Login with"
+    },
+    "footer": {
+      "about": "About Us",
+      "services": "Services",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Use",
+      "contact": "Contact Us",
+      "followUs": "Follow Us",
+      "allRightsReserved": "All rights reserved"
+    }
+  }
+}

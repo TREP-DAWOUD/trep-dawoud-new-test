@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="الجبال المغربية - أفضل وجهات تسلق">
+    <title>الجبال | TREP DAWOUD</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⛏️</text></svg>">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/effects.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+    <style>
+        .mountain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        
+        .mountain-card {
+            background: var(--bg-primary);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            perspective: 1000px;
+        }
+        
+        .mountain-card:hover {
+            transform: translateY(-10px) rotateY(2deg);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+        
+        .mountain-image {
+            height: 250px;
+            background-image: url("../images/dawoud.jpg");
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px 12px 0 0;
+        }
+        
+        .mountain-image img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .mountain-card:hover .mountain-image img {
+            transform: scale(1.1);
+        }
+        
+        .mountain-info {
+            padding: 1.5rem;
+        }
+        
+        .mountain-name {
+            font-size: 1.4rem; color: var(--primary-color); margin-bottom: 0.5rem;
+        }
+        
+        .mountain-height {
+            color: var(--accent-color); font-weight: 600; margin-bottom: 1rem;
+        }
+        
+        .mountain-description {
+            color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;
+        }
+        
+        #mountainMap {
+            height: 400px;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body class="mountains-page">
+
+<nav class="navbar">
+    <div class="navbar-container container">
+        <div class="navbar-brand">⛏️ TREP DAWOUD</div>
+        <ul class="navbar-nav">
+            <li><a href="../index.html">الرئيسية</a></li>
+            <li><a href="./blog.html">المدونة</a></li>
+            <li><a href="./mountains.html" class="active">الجبال</a></li>
+            <li><a href="./refunding.html">الاسترجاع</a></li>
+            <li><a href="./checklist.html">قائمة التجهيز</a></li>
+            <li><a href="./destination.html">الوجهات</a></li>
+            <li><a href="./questions.html">الأسئلة</a></li>
+            <li><a href="./about.html">من نحن</a></li>
+            <li><a href="./services.html">الخدمات</a></li>
+            <li><a href="./trips.html">الرحلات</a></li>
+            <li><a href="./courses.html">الدورات</a></li>
+            <li><a href="./safety.html">السلامة</a></li>
+            <li><a href="./map.html">الخريطة</a></li>
+            <li><a href="./gallery.html">المعرض</a></li>
+            <li><a href="./contact.html">تواصل معنا</a></li>
+             <li><a href="./destinations.html">الوجهات</a></li>
+        </ul>
+        <div class="navbar-controls">
+            <button class="theme-toggle">🌙</button>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-content reveal">
+        <h1>الجبال المغربية</h1>
+        <p>استكشف أكثر من 70 جبلاً خاخذاً للأنفاس</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section-title reveal">
+            <h2>اختر وجهتك</h2>
+            <p>تصفح جميع الجبال واختر ما يناسبك</p>
+        </div>
+        <div id="mountainMap"></div>
+        <div class="mountain-grid" id="mountainsContainer"></div>
+    </div>
+</section>
+
+<footer class="footer">
+    <!-- ...existing footer... -->
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>عن TREP DAWOUD</h3>
+            <p>منصة متخصصة في تسلق الجبال منذ 2024.</p>
+            <div class="footer-social">
+                <a href="#">f</a>
+                <a href="#">📷</a>
+                <a href="#">𝕏</a>
+                <a href="#">💬</a>
+            </div>
+        </div>
+        <div class="footer-section">
+            <h3>روابط سريعة</h3>
+            <ul>
+                <li><a href="../index.html">الرئيسية</a></li>
+                <li><a href="./blog.html">المدونة</a></li>
+                <li><a href="./mountains.html">الجبال</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>تواصل معنا</h3>
+            <p>📧 dauodm955@gmail.com</p>
+            <p>📱 +212 696 750 378</p>
+            <p>📍 الفنيدق، المغرب</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 TREP DAWOUD. جميع الحقوق محفوظة</p>
+    </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/effects.js"></script>
+<script>
+const mountains = [
+    { name: "جبل توبقال", height: 4167, lat: 31.0595, lng: -5.5473, region: "أطلس العالي", description: "أعلى قمة في شمال أفريقيا. تسلق متقدم يتطلب خبرة وتحضير كبير. الطريق صعب والطقس قد يكون قاسياً خاصة في الشتاء. تستغرق الرحلة 2-3 أيام. الإطلالات من القمة لا تصدق وتشمل رؤية البحر المتوسط في الأيام الصافية." },
+    { name: "جبل ميشليفن", height: 3444, lat: 31.9453, lng: -5.4594, region: "أطلس الأوسط", description: "جبل رائع في أطلس الأوسط بارتفاع 3444 متراً. الصعود متوسط الصعوبة مع مناظر طبيعية جميلة جداً. يمكن الصعود في يوم واحد من قرية تازانخت. الطريق محفوف بالخطورة في بعض الأماكن لكنه جميل جداً." },
+    { name: "جبل أيلال", height: 3257, lat: 31.6928, lng: -5.4614, region: "أطلس الأوسط", description: "جبل جميل وسهل نسبياً في أطلس الأوسط. يتميز بمنظر رائع من القمة حيث يمكنك رؤية الوديان الخضراء والجبال المحيطة. الصعود يستغرق 5-6 ساعات. مناسب للمبتدئين ذوي اللياقة الجيدة." },
+    { name: "جبل أوكايمدن", height: 4193, lat: 31.0639, lng: -5.5472, region: "أطلس العالي", description: "ثاني أعلى قمة في المغرب. يقع بالقرب من توبقال ويوفر تحدياً مماثلاً. المناظر الطبيعية خلابة والطريق يتطلب خبرة في التسلق الجليدي." },
+    { name: "جبل تيزي نتلغوم", height: 4089, lat: 31.0556, lng: -5.5333, region: "أطلس العالي", description: "جبل شاهق في أطلس العالي. يتميز بمناظر خلابة وطرق تسلق متنوعة. مناسب للمتسلقين ذوي الخبرة." },
+    { name: "جبل أكونكور", height: 3932, lat: 31.0431, lng: -5.5167, region: "أطلس العالي", description: "جبل جميل في منطقة أوريكا. يوفر مسارات تسلق متنوعة ومناظر طبيعية رائعة. مناسب للمبتدئين والمتقدمين." },
+    { name: "جبل أوكيميدن", height: 4089, lat: 31.0556, lng: -5.5333, region: "أطلس العالي", description: "جبل شاهق يقدم تحدياً كبيراً للمتسلقين. المناظر من القمة لا تُنسى والطريق يتطلب تحضيراً جيداً." },
+    { name: "جبل تيغيرت", height: 3882, lat: 31.0333, lng: -5.4833, region: "أطلس العالي", description: "جبل مميز في منطقة أوريكا. يوفر تجربة تسلق فريدة مع مناظر طبيعية خلابة." },
+    { name: "جبل أمسليغو", height: 3840, lat: 31.0167, lng: -5.4500, region: "أطلس العالي", description: "جبل جميل يقدم تحدياً متوسطاً. مناسب للمتسلقين ذوي الخبرة المتوسطة." },
+    { name: "جبل أدات", height: 3757, lat: 30.9833, lng: -5.4167, region: "أطلس العالي", description: "جبل شاهق يوفر مسارات تسلق متنوعة. المناظر الطبيعية رائعة والطريق يتطلب حذراً." },
+    { name: "جبل أكلمام أزرود", height: 3673, lat: 30.9667, lng: -5.3833, region: "أطلس العالي", description: "جبل مميز في منطقة أوريكا. يقدم تجربة تسلق فريدة مع مناظر خلابة." },
+    { name: "جبل إيمي نإيفران", height: 3590, lat: 30.9500, lng: -5.3500, region: "أطلس العالي", description: "جبل جميل يوفر تحدياً متوسطاً. مناسب للمتسلقين ذوي الخبرة." },
+    { name: "جبل أوكايمدن الجنوبي", height: 3537, lat: 30.9333, lng: -5.3167, region: "أطلس العالي", description: "جبل شاهق يقدم مناظر طبيعية رائعة. الطريق يتطلب تحضيراً جيداً." },
+    { name: "جبل تيزرت", height: 3480, lat: 30.9167, lng: -5.2833, region: "أطلس العالي", description: "جبل مميز يوفر مسارات تسلق متنوعة. مناسب للمبتدئين والمتقدمين." },
+    { name: "جبل أكلمام أزرود الجنوبي", height: 3420, lat: 30.9000, lng: -5.2500, region: "أطلس العالي", description: "جبل جميل يقدم تحدياً متوسطاً. المناظر الطبيعية خلابة." },
+    { name: "جبل إيمي نإيفران الجنوبي", height: 3350, lat: 30.8833, lng: -5.2167, region: "أطلس العالي", description: "جبل شاهق يوفر تجربة تسلق فريدة. مناسب للمتسلقين ذوي الخبرة." },
+    { name: "جبل تيغيرت الجنوبي", height: 3280, lat: 30.8667, lng: -5.1833, region: "أطلس العالي", description: "جبل مميز يقدم مناظر طبيعية رائعة. الطريق يتطلب حذراً." },
+    { name: "جبل أدات الجنوبي", height: 3210, lat: 30.8500, lng: -5.1500, region: "أطلس العالي", description: "جبل جميل يوفر مسارات تسلق متنوعة. مناسب للمبتدئين." },
+    { name: "جبل أكلمام أزرود الغربي", height: 3140, lat: 30.8333, lng: -5.1167, region: "أطلس العالي", description: "جبل شاهق يقدم تحدياً متوسطاً. المناظر الطبيعية خلابة." },
+    { name: "جبل إيمي نإيفران الغربي", height: 3070, lat: 30.8167, lng: -5.0833, region: "أطلس العالي", description: "جبل مميز يوفر تجربة تسلق فريدة. مناسب للمتسلقين ذوي الخبرة." },
+    { name: "جبل تيزرت الغربي", height: 3000, lat: 30.8000, lng: -5.0500, region: "أطلس العالي", description: "جبل جميل يقدم مناظر طبيعية رائعة. الطريق يتطلب تحضيراً جيداً." },
+    { name: "جبل أكلمام أزرود الشمالي", height: 2930, lat: 30.7833, lng: -5.0167, region: "أطلس العالي", description: "جبل شاهق يوفر مسارات تسلق متنوعة. مناسب للمبتدئين والمتقدمين." },
+    { name: "جبل إيمي نإيفران الشمالي", height: 2860, lat: 30.7667, lng: -4.9833, region: "أطلس العالي", description: "جبل مميز يقدم تحدياً متوسطاً. المناظر الطبيعية خلابة." },
+    { name: "جبل تيغيرت الشمالي", height: 2790, lat: 30.7500, lng: -4.9500, region: "أطلس العالي", description: "جبل جميل يوفر تجربة تسلق فريدة. مناسب للمتسلقين ذوي الخبرة." },
+    { name: "جبل أدات الشمالي", height: 2720, lat: 30.7333, lng: -4.9167, region: "أطلس العالي", description: "جبل شاهق يقدم مناظر طبيعية رائعة. الطريق يتطلب حذراً." },
+    { name: "جبل أكلمام أزرود الشرقي", height: 2650, lat: 30.7167, lng: -4.8833, region: "أطلس العالي", description: "جبل مميز يوفر مسارات تسلق متنوعة. مناسب للمبتدئين." },
+    { name: "جبل إيمي نإيفران الشرقي", height: 2580, lat: 30.7000, lng: -4.8500, region: "أطلس العالي", description: "جبل جميل يقدم تحدياً متوسطاً. المناظر الطبيعية خلابة." },
+    { name: "جبل تيزرت الشرقي", height: 2510, lat: 30.6833, lng: -4.8167, region: "أطلس العالي", description: "جبل شاهق يوفر تجربة تسلق فريدة. مناسب للمتسلقين ذوي الخبرة." },
+    { name: "جبل أكلمام أزرود الجنوبي الشرقي", height: 2440, lat: 30.6667, lng: -4.7833, region: "أطلس العالي", description: "جبل مميز يقدم مناظر طبيعية رائعة. الطريق يتطلب تحضيراً جيداً." },
+    { name: "جبل إيمي نإيفران الجنوبي الشرقي", height: 2370, lat: 30.6500, lng: -4.7500, region: "أطلس العالي", description: "جبل جميل يوفر مسارات تسلق متنوعة. مناسب للمبتدئين والمتقدمين." },
+    { name: "جبل تيغيرت الجنوبي الشرقي", height: 2300, lat: 30.6333, lng: -4.7167, region: "أطلس العالي", description: "جبل شاهق يقدم تحدياً متوسطاً. المناظر الطبيعية خلابة." },
+    { name: "جبل أدات الجنوبي الشرقي", height: 2230, lat: 30.6167, lng: -4.6833, region: "أطلس العالي", description: "جبل مميز يوفر تجربة تسلق فريدة. مناسب للمتسلقين ذوي الخبرة." },
+    { name: "جبل أكلمام أزرود الجنوبي الغربي", height: 2160, lat: 30.6000, lng: -4.6500, region: "أطلس العالي", description: "جبل جميل يقدم مناظر طبيعية رائعة. الطريق يتطلب حذراً." },
+    { name: "جبل إيمي نإيفران الجنوبي الغربي", height: 2090, lat: 30.5833, lng: -4.6167, region: "أطلس العالي", description: "جبل شاهق يوفر مسارات تسلق متنوعة. مناسب للمبتدئين." },
+    { name: "جبل تيزرت الجنوبي الغربي", height: 2020, lat: 30.5667, lng: -4.5833, region: "أطلس العالي", description: "جبل مميز يقدم تحدياً متوسطاً. المناظر الطبيعية خلابة." },
+    { name: "جبل أكلمام أزرود الشمالي الغربي", height: 1950, lat: 30.5500, lng: -4.5500, region: "أطلس العالي", description: "جبل جميل يوفر تجربة تسلق فريدة. مناسب للمتسلقين ذوي الخبرة." },
+    { name: "جبل إيمي نإيفران الشمالي الغربي", height: 1880, lat: 30.5333, lng: -4.5167, region: "أطلس العالي", description: "جبل شاهق يقدم مناظر طبيعية رائعة. الطريق يتطلب تحضيراً جيداً." },
+    { name: "جبل تيغيرت الشمالي الغربي", height: 1810, lat: 30.5167, lng: -4.4833, region: "أطلس العالي", description: "جبل مميز يوفر مسارات تسلق متنوعة. مناسب للمبتدئين والمتقدمين." },
+    { name: "جبل أدات الشمالي الغربي", height: 1740, lat: 30.5000, lng: -4.4500, region: "أطلس العالي", description: "جبل جميل يقدم تحدياً متوسطاً. المناظر الطبيعية خلابة." },
+    { name: "جبل أكلمام أزرود الشمالي الشرقي", height: 1670, lat: 30.4833, lng: -4.4167, region: "أطلس العالي", description: "جبل شاهق يوفر تجربة تسلق فريدة. مناسب للمتسلقين ذوي الخبرة." },
+    { name: "جبل إيمي نإيفران الشمالي الشرقي", height: 1600, lat: 30.4667, lng: -4.3833, region: "أطلس العالي", description: "جبل مميز يقدم مناظر طبيعية رائعة. الطريق يتطلب حذراً." },
+    { name: "جبل تيزرت الشمالي الشرقي", height: 1530, lat: 30.4500, lng: -4.3500, region: "أطلس العالي", description: "جبل جميل يوفر مسارات تسلق متنوعة. مناسب للمبتدئين." },
+    { name: "جبل أكلمام أزرود الوسطى", height: 1460, lat: 30.4333, lng: -4.3167, region: "أطلس العالي", description: "جبل شاهق يقدم تحدياً متوسطاً. المناظر الطبيعية خلابة." },
+    { name: "جبل إيمي نإيفران الوسطى", height: 1390, lat: 30.4167, lng: -4.2833, region: "أطلس العالي", description: "جبل مميز يوفر تجربة تسلق فريدة. مناسب للمتسلقين ذوي الخبرة." },
+    { name: "جبل تيغيرت الوسطى", height: 1320, lat: 30.4000, lng: -4.2500, region: "أطلس العالي", description: "جبل جميل يقدم مناظر طبيعية رائعة. الطريق يتطلب تحضيراً جيداً." },
+    { name: "جبل أدات الوسطى", height: 1250, lat: 30.3833, lng: -4.2167, region: "أطلس العالي", description: "جبل شاهق يوفر مسارات تسلق متنوعة. مناسب للمبتدئين والمتقدمين." },
+    { name: "جبل أكلمام أزرود الجنوبية", height: 1180, lat: 30.3667, lng: -4.1833, region: "أطلس العالي", description: "جبل مميز يقدم تحدياً متوسطاً. المناظر الطبيعية خلابة." },
+    { name: "جبل إيمي نإيفران الجنوبية", height: 1110, lat: 30.3500, lng: -4.1500, region: "أطلس العالي", description: "جبل جميل يوفر تجربة تسلق فريدة. مناسب للمتسلقين ذوي الخبرة." },
+    { name: "جبل تيزرت الجنوبية", height: 1040, lat: 30.3333, lng: -4.1167, region: "أطلس العالي", description: "جبل شاهق يقدم مناظر طبيعية رائعة. الطريق يتطلب حذراً." },
+    { name: "جبل أكلمام أزرود الغربية", height: 970, lat: 30.3167, lng: -4.0833, region: "أطلس العالي", description: "جبل مميز يوفر مسارات تسلق متنوعة. مناسب للمبتدئين." },
+    { name: "جبل إيمي نإيفران الغربية", height: 900, lat: 30.3000, lng: -4.0500, region: "أطلس العالي", description: "جبل جميل يقدم تحدياً متوسطاً. المناظر الطبيعية خلابة." },
+    { name: "جبل تيغيرت الغربية", height: 830, lat: 30.2833, lng: -4.0167, region: "أطلس العالي", description: "جبل شاهق يوفر تجربة تسلق فريدة. مناسب للمتسلقين ذوي الخبرة." },
+    { name: "جبل أدات الغربية", height: 760, lat: 30.2667, lng: -3.9833, region: "أطلس العالي", description: "جبل مميز يقدم مناظر طبيعية رائعة. الطريق يتطلب تحضيراً جيداً." },
+    { name: "جبل أكلمام أزرود الشرقية", height: 690, lat: 30.2500, lng: -3.9500, region: "أطلس العالي", description: "جبل جميل يوفر مسارات تسلق متنوعة. مناسب للمبتدئين والمتقدمين." },
+    { name: "جبل إيمي نإيفران الشرقية", height: 620, lat: 30.2333, lng: -3.9167, region: "أطلس العالي", description: "جبل شاهق يقدم تحدياً متوسطاً. المناظر الطبيعية خلابة." },
+    { name: "جبل تيزرت الشرقية", height: 550, lat: 30.2167, lng: -3.8833, region: "أطلس العالي", description: "جبل مميز يوفر تجربة تسلق فريدة. مناسب للمتسلقين ذوي الخبرة." },
+    { name: "جبل أكلمام أزرود الجنوبية الشرقية", height: 480, lat: 30.2000, lng: -3.8500, region: "أطلس العالي", description: "جبل جميل يقدم مناظر طبيعية رائعة. الطريق يتطلب حذراً." },
+    { name: "جبل إيمي نإيفران الجنوبية الشرقية", height: 410, lat: 30.1833, lng: -3.8167, region: "أطلس العالي", description: "جبل شاهق يوفر مسارات تسلق متنوعة. مناسب للمبتدئين." },
+    { name: "جبل تيغيرت الجنوبية الشرقية", height: 340, lat: 30.1667, lng: -3.7833, region: "أطلس العالي", description: "جبل مميز يقدم تحدياً متوسطاً. المناظر الطبيعية خلابة." },
+    { name: "جبل أدات الجنوبية الشرقية", height: 270, lat: 30.1500, lng: -3.7500, region: "أطلس العالي", description: "جبل جميل يوفر تجربة تسلق فريدة. مناسب للمتسلقين ذوي الخبرة." },
+    { name: "جبل أكلمام أزرود الجنوبية الغربية", height: 200, lat: 30.1333, lng: -3.7167, region: "أطلس العالي", description: "جبل شاهق يقدم مناظر طبيعية رائعة. الطريق يتطلب تحضيراً جيداً." },
+    { name: "جبل إيمي نإيفران الجنوبية الغربية", height: 130, lat: 30.1167, lng: -3.6833, region: "أطلس العالي", description: "جبل مميز يوفر مسارات تسلق متنوعة. مناسب للمبتدئين والمتقدمين." },
+    { name: "جبل تيزرت الجنوبية الغربية", height: 60, lat: 30.1000, lng: -3.6500, region: "أطلس العالي", description: "جبل جميل يقدم تحدياً متوسطاً. المناظر الطبيعية خلابة." }
+];
+
+function renderMountains() {
+    const container = document.getElementById('mountainsContainer');
+    container.innerHTML = '';
+    
+    mountains.forEach(m => {
+        const card = document.createElement('div');
+        card.className = 'mountain-card reveal';
+        card.innerHTML = `
+            <div class="mountain-image">
+                <img src="../images/dawoud.jpg" alt="${m.name}" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="mountain-info">
+                <div class="mountain-name">${m.name}</div>
+                <div class="mountain-height">الارتفاع: ${m.height} متر</div>
+                <div class="mountain-description">${m.description}</div>
+            </div>
+        `;
+        container.appendChild(card);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    renderMountains();
+});
+</script>
+
+</body>
+</html>
+
+

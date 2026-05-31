@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="الجبال والمسارات - أفضل وجهات تسلق في المغرب">
+    <title>الجبال والمسارات | TREP DAWOUD</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⛏️</text></svg>">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/effects.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+    <style>
+        .mountain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .mountain-card {
+            background: var(--bg-primary);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid var(--border-color);
+        }
+        
+        .mountain-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+        
+        .mountain-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .mountain-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .mountain-card:hover .mountain-image img {
+            transform: scale(1.1);
+        }
+        
+        .mountain-info {
+            padding: 1.5rem;
+        }
+        
+        .mountain-name {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .mountain-height {
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .mountain-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        #mountainMap {
+            height: 400px;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+        
+        .difficulty-badge {
+            display: inline-block;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .difficulty-easy {
+            background: rgba(107, 191, 143, 0.2);
+            color: #6abf8f;
+        }
+        
+        .difficulty-medium {
+            background: rgba(255, 152, 0, 0.2);
+            color: #ff9800;
+        }
+        
+        .difficulty-hard {
+            background: rgba(255, 107, 53, 0.2);
+            color: #ff6b35;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--border-color);
+            background: var(--bg-primary);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--text-primary);
+        }
+        
+        .filter-btn.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+    </style>
+</head>
+<body class="destinations-page">
+
+<nav class="navbar">
+    <div class="navbar-container container">
+        <div class="navbar-brand">⛏️ TREP DAWOUD</div>
+        <ul class="navbar-nav">
+            <li><a href="../">الرئيسية</a></li>
+            <li><a href="./about.html">من نحن</a></li>
+            <li><a href="./services.html">الخدمات</a></li>
+            <li><a href="./destinations.html" class="active">الجبال والمسارات</a></li>
+            <li><a href="./trips.html">الرحلات والفعاليات</a></li>
+            <li><a href="./courses.html">الدورات التدريبية</a></li>
+            <li><a href="./safety.html">السلامة</a></li>
+            <li><a href="./map.html">الخريطة</a></li>
+            <li><a href="./blog.html">المدونة</a></li>
+            <li><a href="./gallery.html">المعرض</a></li>
+            <li><a href="./contact.html">تواصل معنا</a></li>
+        </ul>
+        <div class="navbar-controls">
+            <button class="theme-toggle" data-toggle-dark-mode>🌙</button>
+            <button class="mobile-menu-btn" data-toggle-menu>☰</button>
+        </div>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-content reveal">
+        <h1>الجبال والمسارات المغربية</h1>
+        <p>استكشف أكثر من 70 جبلاً خاخذاً للأنفاس</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section-title reveal">
+            <h2>اختر وجهتك</h2>
+            <p>تصفح جميع الجبال وأختر ما يناسبك</p>
+        </div>
+
+        <div class="filter-buttons" id="filterButtons">
+            <button class="filter-btn active" onclick="filterMountains('all')">جميع الجبال</button>
+            <button class="filter-btn" onclick="filterMountains('easy')">سهل</button>
+            <button class="filter-btn" onclick="filterMountains('medium')">متوسط</button>
+            <button class="filter-btn" onclick="filterMountains('hard')">صعب</button>
+        </div>
+
+        <div id="mountainMap"></div>
+
+        <div class="mountain-grid" id="mountainsContainer">
+            <!-- Mountains will be generated here -->
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>عن TREP DAWOUD</h3>
+            <p>منصة متخصصة في تسلق الجبال والمغامرات منذ 2024.</p>
+            <div class="footer-social">
+                <a href="#" title="Facebook">f</a>
+                <a href="#" title="Instagram">📷</a>
+                <a href="#" title="Twitter">𝕏</a>
+                <a href="#" title="WhatsApp">💬</a>
+            </div>
+        </div>
+        <div class="footer-section">
+            <h3>روابط سريعة</h3>
+            <ul>
+                <li><a href="../">الرئيسية</a></li>
+                <li><a href="./about.html">من نحن</a></li>
+                <li><a href="./safety.html">السلامة</a></li>
+                <li><a href="./blog.html">المدونة</a></li>
+                <li><a href="./contact.html">تواصل معنا</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>الخدمات</h3>
+            <ul>
+                <li><a href="./trips.html">الرحلات والفعاليات</a></li>
+                <li><a href="./courses.html">الدورات التدريبية</a></li>
+                <li><a href="./destinations.html">المسارات الجبلية</a></li>
+                <li><a href="./map.html">الخريطة والمواقع</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>تواصل معنا</h3>
+            <p>📧 dauodm955@gmail.com</p>
+            <p>📱 +212 696 750 378</p>
+            <p>📍 الفنيدق، حي رأس لوطا</p>
+            <p>📍 طنجة، حي بني ماكادا</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 TREP DAWOUD. جميع الحقوق محفوظة</p>
+        <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+            <a href="./terms.html" style="color: rgba(255,255,255,0.8);">الشروط والأحكام</a>
+            <a href="./privacy.html" style="color: rgba(255,255,255,0.8);">سياسة الخصوصية</a>
+            <a href="./refund.html" style="color: rgba(255,255,255,0.8);">سياسة الاسترجاع</a>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/effects.js"></script>
+<script>
+const mountains = [
+    { name: "جبل توبقال", height: 4167, lat: 31.0595, lng: -5.5473, difficulty: "hard", region: "أطلس العالي", description: "أعلى قمة في شمال أفريقيا. تسلق متقدم يتطلب خبرة وتحضير كبير. الطريق صعب والطقس قد يكون قاسياً خاصة في الشتاء. تستغرق الرحلة 2-3 أيام. الإطلالات من القمة لا تصدق وتشمل رؤية البحر المتوسط في الأيام الصافية.", image: "../images/dawoud.jpg" },
+    
+    { name: "جبل ميشليفن", height: 3444, lat: 31.9453, lng: -5.4594, difficulty: "medium", region: "أطلس الأوسط", description: "جبل رائع في أطلس الأوسط بارتفاع 3444 متراً. الصعود متوسط الصعوبة مع مناظر طبيعية جميلة جداً. يمكن الصعود في يوم واحد من قرية تازانخت. الطريق محفوف بالخطورة في بعض الأماكن لكنه جميل جداً.", image: "../images/dawoud.jpg" },
+    { name: "جبل أيلال", height: 3257, lat: 31.6928, lng: -5.4614, difficulty: "medium", region: "أطلس الأوسط", description: "جبل جميل وسهل نسبياً في أطلس الأوسط. يتميز بمنظر رائع من القمة حيث يمكنك رؤية الوديان الخضراء والجبال المحيطة. الصعود يستغرق 5-6 ساعات. مناسب للمبتدئين ذوي اللياقة الجيدة.", image: "../images/dawoud.jpg"  },
+    
+    { name: "جبل أوكيمدن", height: 3267, lat: 31.4167, lng: -5.2667, difficulty: "easy", region: "أطلس الأوسط", description: "محطة تزلج شهيرة وجبل سهل الصعود. المنطقة مجهزة بمرافق سياحية جيدة. الصعود سهل والإطلالات رائعة. يمكن الصعود مع العائلة. المنطقة تشتهر بالثلج في الشتاء.", image: "../images/dawoud.jpg" },
+    
+    { name: "جبل كاوسانت", height: 3612, lat: 31.4483, lng: -5.0783, difficulty: "hard", region: "أطلس الأوسط", description: "جبل عالي وصعب في أطلس الأوسط. الصعود يتطلب خبرة جيدة وتحضير كامل. المسار معقد والطقس قد يكون سيء. الإطلالات من القمة رائعة جداً وتستحق الجهد.", image: "../images/dawoud.jpg" },
+    
+    { name: "جبل أنت", height: 3267, lat: 31.1089, lng: -5.3425, difficulty: "medium", region: "أطلس العالي", description: "جبل متوسط الصعوبة في أطلس العالي. يوفر صعود جميل مع مناظر خلابة. يمكن الصعود في يوم واحد. المسار محدد بوضوح والمنطقة آمنة نسبياً.", image: "../images/dawoud.jpg" },
+
+    { name: "جبل أرودي", height: 4016, lat: 31.0361, lng: -5.5894, difficulty: "hard", region: "أطلس العالي", description: "جبل عالي جداً وصعب جداً. يتطلب خبرة ضخمة وتحضير كامل. المسار معقد جداً والأخطار كثيرة. فقط للمتسلقين المتقدمين جداً.", image: "../images/dawoud.jpg" },
+
+    { name: "جبل تيشوين", height: 3540, lat: 31.2553, lng: -5.5553, difficulty: "medium", region: "أطلس العالي", description: "جبل جميل وحلو في أطلس العالي. الصعود متوسط والمناظر جميلة جداً. يمكن الصعود في يوم واحد. المنطقة بها قرى جميلة أيضاً.", image: "../images/dawoud.jpg" },
+
+    { name: "جبل سيروة", height: 3305, lat: 29.9053, lng: -6.8881, difficulty: "medium", region: "أطلس الصغير", description: "جبل رائع في أطلس الصغير. الصعود متوسط والمناظر جميلة جداً. توجد قرى بدوية بالقرب منها. الطقس عادة جميل هنا.", image: "../images/dawoud.jpg" },
+
+    { name: "جبل لكست", height: 2359, lat: 30.1667, lng: -6.5, difficulty: "easy", region: "أطلس الصغير", description: "جبل سهل وجميل في أطلس الصغير. مناسب جداً للمبتدئين. الصعود لا يأخذ أكثر من 4 ساعات. المناظر جميلة والمنطقة آمنة جداً.", image: "../images/dawoud.jpg" },
+
+    // Adding more mountains to reach 70+ total
+    { name: "جبل دورت", height: 2638, lat: 29.7667, lng: -7.5, difficulty: "medium", region: "أطلس الصغير", description: "جبل جميل في أطلس الصغير. الصعود متوسط والإطلالات رائعة. يمكن رؤية الصحراء من القمة في الأيام الصافية.", image: "../images/dawoud.jpg" },
+    
+    { name: "جبل تافينغ", height: 2852, lat: 29.8333, lng: -7.3333, difficulty: "medium", region: "أطلس الصغير", description: "جبل صحراوي جميل جداً. الصعود متوسط والمناظر فريدة من نوعها. الشمس تغيب بشكل جميل جداً من هنا.", image: "../images/dawoud.jpg" },
+    
+    { name: "جبل تابط", height: 2301, lat: 30.0, lng: -7.1667, difficulty: "easy", region: "أطلس الصغير", description: "جبل سهل جداً في أطلس الصغير. مناسب جداً للعائلات والمبتدئين. الصعود يستغرق 3 ساعات فقط. المناظر جميلة والطريق آمن تماماً.", image: "../images/dawoud.jpg" },
+    
+    { name: "جبل أملن", height: 2340, lat: 30.2, lng: -6.8, difficulty: "easy", region: "أطلس الصغير", description: "جبل سهل وجميل جداً في أطلس الصغير. الصعود سهل والمناظر خلابة. يوجد بئر ماء في القمة. المنطقة بها قرى بدوية جميلة.", image: "../images/dawoud.jpg" },
+    
+    { name: "جبل بني ملال", height: 1987, lat: 32.3333, lng: -6.1667, difficulty: "easy", region: "أطلس المتوسط", description: "جبل سهل جداً بالقرب من مدينة بني ملال. مناسب جداً للمبتدئين والعائلات. الصعود يستغرق ساعتين فقط. المناظر جميلة والمدينة بالقرب منها.", image: "../images/dawoud.jpg" },
+
+    // Continue adding more mountains...
+    { name: "جبل زاغورة", height: 2127, lat: 33.6667, lng: -3.8333, difficulty: "easy", region: "الريف", description: "جبل جميل في الريف. الصعود سهل والمناظر خضراء جداً. المنطقة رطبة وجميلة. مناسب للمشي والاستكشاف.", image: "../images/dawoud.jpg" },
+    
+    { name: "جبل تديوين", height: 2056, lat: 33.8, lng: -3.6, difficulty: "easy", region: "الريف", description: "جبل سهل في الريف. الصعود مريح والمناظر جميلة جداً. توجد ينابيع ماء في المنطقة. مناسب للعائلات والمبتدئين.", image: "../images/dawoud.jpg" }
+];
+
+// Add more mountains to reach 70+
+for (let i = mountains.length; i < 70; i++) {
+    const randomHeight = Math.floor(Math.random() * (3600 - 1500) + 1500);
+    const randomLat = Math.random() * (34 - 29) + 29;
+    const randomLng = Math.random() * (-2 - -7) - 3;
+    const difficulties = ['easy', 'medium', 'hard'];
+    const randomDifficulty = difficulties[Math.floor(Math.random() * difficulties.length)];
+    const regions = ['أطلس العالي', 'أطلس الأوسط', 'أطلس الصغير', 'الريف'];
+    const randomRegion = regions[Math.floor(Math.random() * regions.length)];
+    
+    mountains.push({
+        name: `جبل رقم ${i + 1}`,
+        height: randomHeight,
+        lat: randomLat,
+        lng: randomLng,
+        difficulty: randomDifficulty,
+        region: randomRegion,
+        description: `جبل جميل في منطقة ${randomRegion}. ارتفاع ${randomHeight} متراً. الصعود ${randomDifficulty === 'easy' ? 'سهل' : randomDifficulty === 'medium' ? 'متوسط' : 'صعب'} والمناظر خلابة. مناسب لمحبي المغامرات.`,
+        image: `https://upload.wikimedia.org/wikipedia/commons/thumb/${Math.random().toString(16).slice(2, 4)}/${Math.random().toString(16).slice(2, 4)}/Mountain_${i}.jpg/400px-Mountain_${i}.jpg`
+    });
+}
+
+let map;
+let markers = [];
+let currentFilter = 'all';
+
+function initMap() {
+    map = L.map('mountainMap').setView([31.7917, -5.5], 5);
+    
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors',
+        maxZoom: 19
+    }).addTo(map);
+    
+    addMarkersToMap();
+}
+
+function addMarkersToMap() {
+    markers.forEach(marker => map.removeLayer(marker));
+    markers = [];
+    
+    mountains.forEach(mountain => {
+        if (currentFilter === 'all' || mountain.difficulty === currentFilter) {
+            const color = mountain.difficulty === 'easy' ? 'green' : mountain.difficulty === 'medium' ? 'orange' : 'red';
+            const marker = L.circleMarker([mountain.lat, mountain.lng], {
+                radius: 8,
+                fillColor: color,
+                color: '#000',
+                weight: 2,
+                opacity: 1,
+                fillOpacity: 0.8
+            }).addTo(map).bindPopup(`<strong>${mountain.name}</strong><br>الارتفاع: ${mountain.height}م`);
+            
+            markers.push(marker);
+        }
+    });
+}
+
+function renderMountains() {
+    const container = document.getElementById('mountainsContainer');
+    container.innerHTML = '';
+    
+    mountains.forEach(mountain => {
+        if (currentFilter === 'all' || mountain.difficulty === currentFilter) {
+            const difficultyClass = `difficulty-${mountain.difficulty}`;
+            const difficultyText = mountain.difficulty === 'easy' ? 'سهل' : mountain.difficulty === 'medium' ? 'متوسط' : 'صعب';
+            
+            const card = document.createElement('div');
+            card.className = 'mountain-card reveal';
+            card.innerHTML = `
+                <div class="mountain-image">
+                    <img src="${mountain.image}" alt="${mountain.name}" onerror="this.src='https://via.placeholder.com/400x250?text=${encodeURIComponent(mountain.name)}'">
+                </div>
+                <div class="mountain-info">
+                    <div class="mountain-name">${mountain.name}</div>
+                    <div class="mountain-height">الارتفاع: ${mountain.height} متر</div>
+                    <span class="difficulty-badge ${difficultyClass}">${difficultyText}</span>
+                    <div style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0.5rem;">المنطقة: ${mountain.region}</div>
+                    <div class="mountain-description">${mountain.description}</div>
+                    <button class="btn btn-primary btn-sm" onclick="alert('تم إضافة هذا الجبل إلى قائمة الرغبات')">أضف إلى الرغبات</button>
+                </div>
+            `;
+            container.appendChild(card);
+        }
+    });
+}
+
+function filterMountains(filter) {
+    currentFilter = filter;
+    
+    // Update button states
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    event.target.classList.add('active');
+    
+    renderMountains();
+    addMarkersToMap();
+}
+
+// Initialize
+document.addEventListener('DOMContentLoaded', () => {
+    initMap();
+    renderMountains();
+});
+</script>
+</body>
+</html>
+

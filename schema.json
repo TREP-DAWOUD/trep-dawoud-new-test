@@ -1,0 +1,57 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "TREP DAWOUD",
+  "alternateName": "تريب داود",
+  "url": "https://trep-dawoud.github.io/trep-dawoud/",
+  "logo": "https://trepdawoud.com/assets/images/logo.png",
+  "description": "منصة متخصصة في تسلق الجبال والمغامرات الطبيعية مع رحلات ودورات تدريبية معتمدة",
+  "sameAs": [
+    "https://www.facebook.com/trepdawoud",
+    "https://www.instagram.com/trepdawoud",
+    "https://www.twitter.com/trepdawoud",
+    "https://www.youtube.com/@trepdawoud"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+966-50-1234567",
+    "contactType": "Customer Service",
+    "email": "info@trepdawoud.com"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "طريق عسير، الطائف",
+    "addressLocality": "الطائف",
+    "addressRegion": "منطقة مكة المكرمة",
+    "postalCode": "26516",
+    "addressCountry": "SA"
+  },
+  "areaServed": [
+    "SA",
+    "AE",
+    "KW",
+    "QA",
+    "BH",
+    "OM"
+  ],
+  "hasOfferingType": [
+    "https://schema.org/Service",
+    "https://schema.org/Course",
+    "https://schema.org/TouristAttraction"
+  ],
+  "knowsAbout": [
+    "Mountain Climbing",
+    "Hiking",
+    "Adventure Sports",
+    "Outdoor Training",
+    "Nature Conservation"
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "524",
+    "bestRating": "5",
+    "worstRating": "1"
+  }
+}
+

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Home -->
+  <url>
+    <loc>https://trep-dawoud.github.io/trep-dawoud/</loc>
+    <lastmod>2024-01-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Main Pages -->
+  <url>
+    <loc>https://trep-dawoud.github.io/trep-dawoud/pages/about.html</loc>
+    <lastmod>2024-01-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://trep-dawoud.github.io/trep-dawoud/pages/services.html</loc>
+    <lastmod>2024-01-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://trep-dawoud.github.io/trep-dawoud/pages/destinations.html</loc>
+    <lastmod>2024-01-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://trep-dawoud.github.io/trep-dawoud/pages/trips.html</loc>
+    <lastmod>2024-01-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://trep-dawoud.github.io/trep-dawoud/pages/courses.html</loc>
+    <lastmod>2024-01-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://trep-dawoud.github.io/trep-dawoud/pages/blog.html</loc>
+    <lastmod>2024-01-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://trep-dawoud.github.io/trep-dawoud/pages/contact.html</loc>
+    <lastmod>2024-01-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://trep-dawoud.github.io/trep-dawoud/pages/gallery.html</loc>
+    <lastmod>2024-01-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://trep-dawoud.github.io/trep-dawoud/pages/map.html</loc>
+    <lastmod>2024-01-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <!-- Safety & Information -->
+  <url>
+    <loc>https://trep-dawoud.github.io/trep-dawoud/pages/safety.html</loc>
+    <lastmod>2024-01-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://trep-dawoud.github.io/trep-dawoud/pages/gear-checklist.html</loc>
+    <lastmod>2024-01-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <!-- Legal Pages -->
+  <url>
+    <loc>https://trep-dawoud.github.io/trep-dawoud/pages/terms.html</loc>
+    <lastmod>2024-01-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://trep-dawoud.github.io/trep-dawoud/pages/privacy.html</loc>
+    <lastmod>2024-01-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Auth Pages (no index) -->
+  <!-- Blog Articles -->
+  <url>
+    <loc>https://trep-dawoud.github.io/trep-dawoud/blog/article-1.html</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://trep-dawoud.github.io/trep-dawoud/blog/article-2.html</loc>
+    <lastmod>2024-01-12</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://trep-dawoud.github.io/trep-dawoud/blog/article-3.html</loc>
+    <lastmod>2024-01-10</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://trep-dawoud.github.io/trep-dawoud/blog/article-4.html</loc>
+    <lastmod>2024-01-08</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://trep-dawoud.github.io/trep-dawoud/blog/article-5.html</loc>
+    <lastmod>2024-01-05</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://trep-dawoud.github.io/trep-dawoud/blog/article-6.html</loc>
+    <lastmod>2024-01-03</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Dashboard Pages -->
+  <url>
+    <loc>https://trep-dawoud.github.io/trep-dawoud/dashboard/index.html</loc>
+    <lastmod>2024-01-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://trep-dawoud.github.io/trep-dawoud/dashboard/profile.html</loc>
+    <lastmod>2024-01-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://trep-dawoud.github.io/trep-dawoud/dashboard/bookings.html</loc>
+    <lastmod>2024-01-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://trep-dawoud.github.io/trep-dawoud/dashboard/courses.html</loc>
+    <lastmod>2024-01-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://trep-dawoud.github.io/trep-dawoud/dashboard/settings.html</loc>
+    <lastmod>2024-01-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>

@@ -1,0 +1,46 @@
+{
+  "name": "trep-dawoud",
+  "version": "1.0.0",
+  "description": "منصة متخصصة في تسلق الجبال والمغامرات الطبيعية",
+  "main": "index.html",
+  "type": "module",
+  "scripts": {
+    "start": "http-server -p 8000 -c-1",
+    "dev": "http-server -p 8000 -c-1 -o",
+    "build": "echo 'Build process would go here'",
+    "test": "echo 'Testing would go here'",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
+  "keywords": [
+    "mountain",
+    "climbing",
+    "hiking",
+    "adventure",
+    "sports",
+    "training",
+    "courses",
+    "saudi arabia"
+  ],
+  "author": "TREP DAWOUD Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/trepdawoud/website.git"
+  },
+  "homepage": "https://trepdawoud.com",
+  "bugs": {
+    "url": "https://trep-dawoud.github.io/trep-dawoud",
+    "email": "support@trepdawoud.com"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "eslint": "^8.0.0",
+    "prettier": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  }
+}
+

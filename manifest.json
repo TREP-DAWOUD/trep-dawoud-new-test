@@ -1,0 +1,103 @@
+{
+  "name": "TREP DAWOUD - Mountain Climbing & Hiking Platform",
+  "short_name": "TREP DAWOUD",
+  "description": "منصة متخصصة في تسلق الجبال والمغامرات الطبيعية مع رحلات ودورات تدريبية معتمدة",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#1a472a",
+  "background_color": "#ffffff",
+  "dir": "rtl",
+  "lang": "ar",
+  "categories": [
+    "sports",
+    "travel",
+    "lifestyle"
+  ],
+  "screenshots": [
+    {
+      "src": "/assets/images/screenshot-1.png",
+      "sizes": "540x720",
+      "type": "image/png",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "/assets/images/screenshot-2.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ],
+  "icons": [
+    {
+      "src": "/assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icons/icon-maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "حجز رحلة",
+      "short_name": "احجز الآن",
+      "description": "احجز رحلتك المفضلة الآن",
+      "url": "/pages/trips.html",
+      "icons": [
+        {
+          "src": "/assets/icons/trips.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "الدورات التدريبية",
+      "short_name": "الدورات",
+      "description": "اختر الدورة المناسبة لك",
+      "url": "/pages/courses.html",
+      "icons": [
+        {
+          "src": "/assets/icons/courses.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "تواصل معنا",
+      "short_name": "التواصل",
+      "description": "أرسل لنا رسالتك",
+      "url": "/pages/contact.html",
+      "icons": [
+        {
+          "src": "/assets/icons/contact.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "share_target": {
+    "action": "/share",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  }
+}

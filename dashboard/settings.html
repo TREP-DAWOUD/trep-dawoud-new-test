@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الإعدادات - TREP DAWOUD</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="dashboard-page">
+
+<nav class="navbar">
+    <div class="container">
+        <div class="navbar-brand"><span class="logo">⛏️ TREP DAWOUD</span></div>
+        <button class="mobile-menu-toggle">☰</button>
+        <ul class="nav-links"><li><a href="/">الرئيسية</a></li><li><button class="theme-toggle">🌙</button></li></ul>
+    </div>
+</nav>
+
+<main class="container" style="margin-top: 100px;">
+    <div class="dashboard-container" style="display: grid; grid-template-columns: 250px 1fr; gap: 30px; max-width: 1200px; margin: 0 auto;">
+        
+        <aside class="dashboard-sidebar">
+            <div class="sidebar-user"><h3>أحمد محمد</h3></div>
+            <nav class="sidebar-nav">
+                <a href="/dashboard/index.html" class="nav-item">📊 لوحة التحكم</a>
+                <a href="/dashboard/profile.html" class="nav-item">👤 الملف الشخصي</a>
+                <a href="/dashboard/bookings.html" class="nav-item">📅 الحجوزات</a>
+                <a href="/dashboard/courses.html" class="nav-item">📚 الدورات</a>
+                <a href="/dashboard/settings.html" class="nav-item active">⚙️ الإعدادات</a>
+            </nav>
+        </aside>
+
+        <div class="dashboard-content">
+            <h1>الإعدادات</h1>
+            
+            <!-- Notifications -->
+            <div class="card" style="margin-bottom: 30px;">
+                <h2 style="margin-bottom: 20px;">🔔 الإخطارات</h2>
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                    <label style="display: flex; gap: 10px; align-items: center; cursor: pointer;">
+                        <input type="checkbox" checked style="width: 20px; height: 20px;">
+                        <span><strong>إشعارات البريد الإلكتروني</strong> - احصل على تنبيهات عن الحجوزات والدورات</span>
+                    </label>
+                    <label style="display: flex; gap: 10px; align-items: center; cursor: pointer;">
+                        <input type="checkbox" checked style="width: 20px; height: 20px;">
+                        <span><strong>إشعارات رسائل نصية</strong> - اشعارات فوري عبر الرسائل</span>
+                    </label>
+                    <label style="display: flex; gap: 10px; align-items: center; cursor: pointer;">
+                        <input type="checkbox" checked style="width: 20px; height: 20px;">
+                        <span><strong>إشعارات الدفع</strong> - تنبيهات عند الفواتير والدفعات</span>
+                    </label>
+                    <label style="display: flex; gap: 10px; align-items: center; cursor: pointer;">
+                        <input type="checkbox" style="width: 20px; height: 20px;">
+                        <span><strong>النشرات البريدية</strong> - أخبار وعروض TREP DAWOUD</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Privacy & Security -->
+            <div class="card" style="margin-bottom: 30px;">
+                <h2 style="margin-bottom: 20px;">🔐 الخصوصية والأمان</h2>
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    <div style="border-bottom: 1px solid var(--color-border); padding-bottom: 20px;">
+                        <h3 style="margin-bottom: 10px;">مستوى الخصوصية</h3>
+                        <select style="padding: 10px; border: 1px solid var(--color-border); border-radius: 4px; width: 300px;">
+                            <option>عام - يمكن للجميع رؤية ملفي الشخصي</option>
+                            <option>خاص - مرئي للأصدقاء فقط</option>
+                            <option>سري - مرئي لي فقط</option>
+                        </select>
+                    </div>
+
+                    <div style="border-bottom: 1px solid var(--color-border); padding-bottom: 20px;">
+                        <h3 style="margin-bottom: 10px;">المصادقة متعددة العوامل</h3>
+                        <p style="color: var(--color-text-light); margin-bottom: 10px;">حماية إضافية لحسابك</p>
+                        <button class="btn btn-primary" style="padding: 10px 20px;">تفعيل 2FA</button>
+                    </div>
+
+                    <div>
+                        <h3 style="margin-bottom: 10px;">جلسات نشطة</h3>
+                        <p style="color: var(--color-text-light); margin-bottom: 15px;">أجهزتك المرتبطة بالحساب</p>
+                        <div style="background: var(--color-bg-light); padding: 15px; border-radius: 4px; margin-bottom: 10px;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                <span>💻 Chrome على Windows</span>
+                                <span style="color: var(--color-text-light);">آخر دخول: اليوم</span>
+                            </div>
+                            <button class="btn btn-outline" style="padding: 5px 15px; font-size: 0.9rem;">تسجيل خروج</button>
+                        </div>
+                        <button class="btn btn-outline" style="padding: 10px 20px;">تسجيل خروج من جميع الأجهزة</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Preferences -->
+            <div class="card" style="margin-bottom: 30px;">
+                <h2 style="margin-bottom: 20px;">⚙️ التفضيلات</h2>
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    <div style="border-bottom: 1px solid var(--color-border); padding-bottom: 20px;">
+                        <h3 style="margin-bottom: 10px;">اللغة</h3>
+                        <select style="padding: 10px; border: 1px solid var(--color-border); border-radius: 4px; width: 300px;">
+                            <option>العربية 🇸🇦</option>
+                            <option>English 🇬🇧</option>
+                            <option>中文 🇨🇳</option>
+                        </select>
+                    </div>
+
+                    <div style="border-bottom: 1px solid var(--color-border); padding-bottom: 20px;">
+                        <h3 style="margin-bottom: 10px;">الوضع</h3>
+                        <div style="display: flex; gap: 15px;">
+                            <label style="display: flex; gap: 8px;">
+                                <input type="radio" name="theme" value="light"> 🌞 فاتح
+                            </label>
+                            <label style="display: flex; gap: 8px;">
+                                <input type="radio" name="theme" value="dark" checked> 🌙 داكن
+                            </label>
+                            <label style="display: flex; gap: 8px;">
+                                <input type="radio" name="theme" value="auto"> 🔄 تلقائي
+                            </label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 style="margin-bottom: 10px;">آخر الأنشطة</h3>
+                        <p style="color: var(--color-text-light); margin-bottom: 10px;">عرض أنشطتك للآخرين</p>
+                        <label style="display: flex; gap: 10px; align-items: center; cursor: pointer;">
+                            <input type="checkbox" checked style="width: 20px; height: 20px;">
+                            <span>أظهر آخر حركاتي للآخرين</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data & Storage -->
+            <div class="card" style="margin-bottom: 30px;">
+                <h2 style="margin-bottom: 20px;">💾 البيانات والتخزين</h2>
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    <div style="border-bottom: 1px solid var(--color-border); padding-bottom: 20px;">
+                        <h3 style="margin-bottom: 10px;">تنزيل بياناتي</h3>
+                        <p style="color: var(--color-text-light); margin-bottom: 10px;">احصل على نسخة من بياناتك الشخصية</p>
+                        <button class="btn btn-outline" style="padding: 10px 20px;">📥 طلب التنزيل</button>
+                    </div>
+
+                    <div style="border-bottom: 1px solid var(--color-border); padding-bottom: 20px;">
+                        <h3 style="margin-bottom: 10px;">حذف الحساب</h3>
+                        <p style="color: var(--color-text-light); margin-bottom: 10px;">حذف حسابك بشكل دائم (لا يمكن التراجع)</p>
+                        <button class="btn btn-outline" style="padding: 10px 20px; border-color: #ef4444; color: #ef4444;">🗑️ حذف الحساب</button>
+                    </div>
+
+                    <div>
+                        <h3 style="margin-bottom: 10px;">السياسات</h3>
+                        <ul style="display: flex; flex-direction: column; gap: 10px;">
+                            <li><a href="/pages/privacy.html" style="color: var(--color-accent); text-decoration: none;">📋 سياسة الخصوصية</a></li>
+                            <li><a href="/pages/terms.html" style="color: var(--color-accent); text-decoration: none;">📜 شروط الاستخدام</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Save Button -->
+            <div style="display: flex; gap: 15px;">
+                <button class="btn btn-primary" style="padding: 12px 30px;">💾 حفظ التغييرات</button>
+                <button class="btn btn-outline" style="padding: 12px 30px;">↩️ إلغاء</button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container"><div class="footer-bottom"><p>&copy; 2026 TREP DAWOUD</p></div></div>
+</footer>
+
+<style>
+    .dashboard-container { margin-bottom: 50px; }
+    .dashboard-sidebar { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); height: fit-content; position: sticky; top: 100px; }
+    html.dark-mode .dashboard-sidebar { background: var(--color-bg); }
+    .sidebar-user { padding-bottom: 20px; border-bottom: 1px solid var(--color-border); }
+    .sidebar-nav { display: flex; flex-direction: column; margin-top: 20px; }
+    .nav-item { padding: 12px 15px; border-radius: 4px; text-decoration: none; color: var(--color-text); transition: all 300ms; }
+    .nav-item:hover { background: var(--color-bg-light); color: var(--color-accent); }
+    .nav-item.active { background: var(--color-accent); color: white; }
+    .card { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    html.dark-mode .card { background: var(--color-bg); }
+    select { font-family: inherit; font-size: 1rem; }
+    html.dark-mode select { background: var(--color-bg-light); color: var(--color-text); }
+    @media (max-width: 768px) { 
+        .dashboard-container { grid-template-columns: 1fr; }
+        .sidebar-nav { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+        select { width: 100% !important; }
+    }
+</style>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

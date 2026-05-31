@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول - TREP DAWOUD</title>
+    <link rel="canonical" href="https://trepdawoud.com/auth/login.html">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="contact-page">
+
+<nav class="navbar">
+    <div class="navbar-container container">
+        <div class="navbar-brand">⛏️ TREP DAWOUD</div>
+        <div class="navbar-controls">
+            <button class="theme-toggle">🌙</button>
+        </div>
+    </div>
+</nav>
+
+<section class="section" style="min-height: 80vh; display: flex; align-items: center; justify-content: center;">
+    <div class="container">
+        <div style="max-width: 450px; margin: 0 auto; background: var(--bg-secondary); padding: 2rem; border-radius: 12px; box-shadow: var(--shadow-md);">
+            <h2 style="text-align: center; margin-bottom: 2rem;">تسجيل الدخول</h2>
+
+            <form class="form-validate">
+                <div class="form-group">
+                    <label for="email">البريد الإلكتروني</label>
+                    <input type="email" id="email" name="email" required placeholder="your@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">كلمة المرور</label>
+                    <input type="password" id="password" name="password" required placeholder="••••••••">
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                    <label style="display: flex; align-items: center; gap: 0.5rem; margin: 0;">
+                        <input type="checkbox" name="remember">
+                        <span>تذكرني</span>
+                    </label>
+                    <a href="/auth/forgot-password.html" style="font-size: 0.9rem;">نسيت كلمة المرور؟</a>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full btn-lg" style="margin-bottom: 1rem;">دخول</button>
+
+                <div style="text-align: center; color: var(--text-secondary);">
+                    ليس لديك حساب؟ <a href="/auth/register.html" style="color: var(--primary-color); font-weight: 600;">إنشاء حساب جديد</a>
+                </div>
+            </form>
+
+            <div style="border-top: 1px solid var(--border-color); margin: 1.5rem 0; padding: 1.5rem 0; text-align: center; color: var(--text-secondary);">
+                أو
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                <button class="btn btn-outline">Google</button>
+                <button class="btn btn-outline">Facebook</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer-bottom">
+        <p>&copy; 2024 TREP DAWOUD. جميع الحقوق محفوظة</p>
+    </div>
+</footer>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

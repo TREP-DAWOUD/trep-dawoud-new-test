@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin/
+Disallow: /api/
+Disallow: /auth/
+Disallow: /dashboard/
+Disallow: /*.json
+Disallow: /?s=
+Disallow: /*?fbclid=
+
+Crawl-delay: 1
+Request-rate: 1/1s
+
+Sitemap: https://trep-dawoud.github.io/trep-dawoud/sitemap.xml
+Sitemap: https://trep-dawoud.github.io/trep-dawoud/sitemap-pages.xml
+Sitemap: https://trep-dawoud.github.io/trep-dawoud/sitemap-blog.xml
+
+Host: https://trep-dawoud.github.io/trep-dawoud/

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="احجز رحلتك المغامرة مع TREP DAWOUD - نظام حجز آمن وموثوق للرحلات الجبلية">
+    <meta name="keywords" content="حجز رحلات, تسلق جبال, رحلات مغامرات">
+    <meta property="og:title" content="احجز رحلتك - TREP DAWOUD">
+    <meta property="og:description" content="احجز رحلتك المغامرة مع أفضل مرشدين الجبال">
+    <title>احجز رحلتك - TREP DAWOUD</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⛏️</text></svg>">
+    <link rel="manifest" href="../manifest.json">
+    <meta name="theme-color" content="#1a472a">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/effects.css">
+    <link rel="stylesheet" href="../css/booking-style.css">
+</head>
+<body class="dashboard-page">
+
+<!-- ===================== NAVBAR ===================== -->
+<nav class="navbar">
+    <div class="navbar-container container">
+        <div class="navbar-brand">⛏️ TREP DAWOUD</div>
+        
+        <ul class="navbar-nav">
+            <li><a href="../">الرئيسية</a></li>
+            <li><a href="./booking.html" class="active btn-booking-nav">🎫 احجز الآن</a></li>
+            <li><a href="./blog.html">المدونة</a></li>
+            <li><a href="./mountains.html">الجبال</a></li>
+            <li><a href="./refunding.html">الاسترجاع</a></li>
+            <li><a href="./checklist.html">قائمة التجهيز</a></li>
+            <li><a href="./destination.html">الوجهات</a></li>
+            <li><a href="./questions.html">الأسئلة</a></li>
+            <li><a href="./about.html">من نحن</a></li>
+            <li><a href="./services.html">الخدمات</a></li>
+            <li><a href="./trips.html">الرحلات</a></li>
+            <li><a href="./courses.html">الدورات</a></li>
+            <li><a href="./safety.html">السلامة</a></li>
+            <li><a href="./map.html">الخريطة</a></li>
+            <li><a href="./gallery.html">المعرض</a></li>
+            <li><a href="./contact.html">تواصل معنا</a></li>
+        </ul>
+
+        <div class="navbar-controls">
+            <button class="theme-toggle" title="تبديل الوضع المظلم" data-toggle-dark-mode>🌙</button>
+            <button class="mobile-menu-btn" data-toggle-menu>☰</button>
+        </div>
+    </div>
+</nav>
+
+<!-- ===================== PAGE HEADER ===================== -->
+<section class="booking-header">
+    <div class="container">
+        <div class="booking-header-content reveal">
+            <h1>نظام الحجز الموثوق</h1>
+            <p>احجز رحلتك مع أفضل المرشدين والمعدات</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== BOOKING FILTERS ===================== -->
+<section class="section">
+    <div class="container">
+        <div class="booking-filters-container reveal">
+            <h2 class="booking-filters-title">ابحث عن رحلتك المثالية</h2>
+            
+            <div class="booking-filters">
+                <div class="filter-group">
+                    <label for="difficulty">مستوى الصعوبة</label>
+                    <select id="difficulty" class="filter-select">
+                        <option value="">الكل</option>
+                        <option value="سهل">سهل</option>
+                        <option value="متوسط">متوسط</option>
+                        <option value="صعب">صعب</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="duration">المدة</label>
+                    <select id="duration" class="filter-select">
+                        <option value="">الكل</option>
+                        <option value="يوم">يوم واحد</option>
+                        <option value="يومين">يومين</option>
+                        <option value="ثلاثة">ثلاثة أيام</option>
+                        <option value="اسبوع">أسبوع</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="price">نطاق السعر (د.م.)</label>
+                    <input type="range" id="price" min="0" max="5000" value="5000" class="filter-range">
+                    <span id="priceValue">الكل</span>
+                </div>
+
+                <button class="btn btn-primary" id="resetFilters">إعادة تعيين</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== BOOKING TRIPS LIST ===================== -->
+<section class="section" style="background: var(--bg-secondary);">
+    <div class="container">
+        <div class="booking-trips-grid" id="bookingTripsContainer">
+            <!-- سيتم ملء هذا الجزء بواسطة JavaScript -->
+        </div>
+
+        <!-- رسالة "لا توجد نتائج" -->
+        <div id="noResultsMessage" style="display: none; text-align: center; padding: 3rem;">
+            <h3>لم نجد رحلات تطابق معاييرك</h3>
+            <p>جرب تغيير المرشحات أو تصفح جميع الرحلات المتاحة</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== BOOKING MODAL ===================== -->
+<div id="bookingModal" class="booking-modal">
+    <div class="booking-modal-content">
+        <button class="booking-modal-close" id="closeModal">&times;</button>
+        
+        <div class="booking-modal-header">
+            <h2 id="modalTripName"></h2>
+            <p id="modalTripSubtitle"></p>
+        </div>
+
+        <form class="booking-form" id="bookingForm">
+            <div class="form-section">
+                <h3>معلومات الرحلة</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>اسم الرحلة</label>
+                        <input type="text" id="tripName" class="form-input" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>السعر</label>
+                        <input type="text" id="tripPrice" class="form-input" readonly>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>تاريخ الانطلاق</label>
+                        <input type="date" id="departureDate" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label>عدد المشاركين</label>
+                        <input type="number" id="participants" class="form-input" min="1" max="20" value="1" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>بيانات المتقدم</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>الاسم الكامل</label>
+                        <input type="text" id="fullName" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label>البريد الإلكتروني</label>
+                        <input type="email" id="email" class="form-input" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>رقم الجوال</label>
+                        <input type="tel" id="phone" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label>العمر</label>
+                        <input type="number" id="age" class="form-input" min="13" max="100" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>معلومات إضافية</h3>
+                <div class="form-group">
+                    <label>هل لديك خبرة سابقة في التسلق؟</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="experience" value="لا" required>
+                            <span>لا - المبتدئ</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="experience" value="نعم">
+                            <span>نعم - متوسط</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="experience" value="محترف">
+                            <span>محترف</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">ملاحظات إضافية</label>
+                    <textarea id="notes" class="form-textarea" placeholder="أي متطلبات أو ملاحظات خاصة؟"></textarea>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <label class="checkbox-option">
+                        <input type="checkbox" id="terms" required>
+                        <span>أوافق على <a href="#">شروط وأحكام الحجز</a></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="booking-summary">
+                <h3>ملخص الحجز</h3>
+                <div class="summary-row">
+                    <span>السعر الأساسي</span>
+                    <span id="summaryBasePrice">0 د.م.</span>
+                </div>
+                <div class="summary-row">
+                    <span>عدد المشاركين</span>
+                    <span id="summaryParticipants">1</span>
+                </div>
+                <div class="summary-row">
+                    <span>الإجمالي</span>
+                    <span id="summaryTotal" style="color: var(--accent-color); font-weight: 700; font-size: 1.2rem;">0 د.م.</span>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-accent btn-lg glow-btn">تأكيد الحجز</button>
+                <button type="button" class="btn btn-secondary" id="cancelBooking">إلغاء</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- ===================== SUCCESS MESSAGE ===================== -->
+<div id="successMessage" class="success-message">
+    <div class="success-content">
+        <div class="success-icon">✓</div>
+        <h3>تم استلام طلب الحجز بنجاح!</h3>
+        <p>سيتم التواصل معك قريباً على البريد الإلكتروني أو رقم الجوال المسجل</p>
+        <button class="btn btn-primary" id="closeSuccess">حسناً</button>
+    </div>
+</div>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer" style="background: var(--primary-color); color: white; padding: 3rem 0; margin-top: 4rem;">
+    <div class="container">
+        <div class="grid grid-4">
+            <div>
+                <h4 style="color: white;">⛏️ TREP DAWOUD</h4>
+                <p>منصة موثوقة لحجز رحلات تسلق الجبال والمغامرات</p>
+            </div>
+            <div>
+                <h4 style="color: white;">الروابط السريعة</h4>
+                <ul style="list-style: none;">
+                    <li><a href="../" style="color: rgba(255,255,255,0.8);">الرئيسية</a></li>
+                    <li><a href="./mountains.html" style="color: rgba(255,255,255,0.8);">الجبال</a></li>
+                    <li><a href="./courses.html" style="color: rgba(255,255,255,0.8);">الدورات</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="color: white;">الدعم</h4>
+                <ul style="list-style: none;">
+                    <li><a href="./contact.html" style="color: rgba(255,255,255,0.8);">تواصل معنا</a></li>
+                    <li><a href="./questions.html" style="color: rgba(255,255,255,0.8);">الأسئلة الشائعة</a></li>
+                    <li><a href="./safety.html" style="color: rgba(255,255,255,0.8);">السلامة</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="color: white;">تابعنا</h4>
+                <div style="display: flex; gap: 1rem;">
+                    <a href="#" style="color: rgba(255,255,255,0.8); font-size: 1.5rem;">📘</a>
+                    <a href="#" style="color: rgba(255,255,255,0.8); font-size: 1.5rem;">🐦</a>
+                    <a href="#" style="color: rgba(255,255,255,0.8); font-size: 1.5rem;">📷</a>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
+            <p>&copy; 2024 TREP DAWOUD. جميع الحقوق محفوظة.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- ===================== SCRIPTS ===================== -->
+<script src="../js/main.js"></script>
+<script src="../js/booking-script.js"></script>
+</body>
+</html>

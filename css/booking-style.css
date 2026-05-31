@@ -1,0 +1,579 @@
+/* =====================================================
+   BOOKING PAGE - CSS STYLES
+   Unique styles for booking page - independent from main styles
+   ===================================================== */
+
+/* ===================== PAGE HEADER ===================== */
+.booking-header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+    color: white;
+    padding: 3rem 0;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.booking-header-content h1 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.booking-header-content p {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 1.1rem;
+}
+
+/* ===================== FILTERS SECTION ===================== */
+.booking-filters-container {
+    background: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.booking-filters-title {
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.booking-filters {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    align-items: end;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-group label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+}
+
+.filter-select,
+.filter-range {
+    padding: 0.75rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.filter-select:focus,
+.filter-range:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+}
+
+.filter-range {
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+#resetFilters {
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+}
+
+/* ===================== TRIPS GRID ===================== */
+.booking-trips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.booking-trip-card {
+    background: var(--bg-primary);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.booking-trip-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.trip-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+}
+
+.trip-content {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.trip-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+    gap: 1rem;
+}
+
+.trip-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.trip-difficulty {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.difficulty-easy {
+    background: #d4f1d4;
+    color: #2d5a2d;
+}
+
+.difficulty-medium {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.difficulty-hard {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+[data-theme="dark"] .difficulty-easy {
+    background: rgba(83, 164, 83, 0.3);
+    color: #90ee90;
+}
+
+[data-theme="dark"] .difficulty-medium {
+    background: rgba(255, 193, 7, 0.2);
+    color: #ffc107;
+}
+
+[data-theme="dark"] .difficulty-hard {
+    background: rgba(244, 67, 54, 0.2);
+    color: #ff6b6b;
+}
+
+.trip-description {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    flex: 1;
+}
+
+.trip-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.detail-item {
+    padding: 0.5rem;
+    background: var(--bg-secondary);
+    border-radius: 6px;
+    text-align: center;
+}
+
+.detail-label {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+}
+
+.detail-value {
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.trip-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.trip-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.trip-actions .btn {
+    flex: 1;
+}
+
+/* ===================== BOOKING MODAL ===================== */
+.booking-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+    overflow-y: auto;
+}
+
+.booking-modal.active {
+    display: flex;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.booking-modal-content {
+    background: var(--bg-primary);
+    border-radius: 12px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    animation: slideIn 0.3s ease;
+    margin: 2rem auto;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.booking-modal-close {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--text-secondary);
+    z-index: 10;
+    transition: color 0.3s ease;
+}
+
+.booking-modal-close:hover {
+    color: var(--accent-color);
+}
+
+.booking-modal-header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 12px 12px 0 0;
+}
+
+.booking-modal-header h2 {
+    color: white;
+    margin: 0 0 0.5rem 0;
+}
+
+.booking-modal-header p {
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+}
+
+/* ===================== BOOKING FORM ===================== */
+.booking-form {
+    padding: 2rem;
+}
+
+.form-section {
+    margin-bottom: 2rem;
+}
+
+.form-section h3 {
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+}
+
+.form-input,
+.form-textarea {
+    padding: 0.75rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+}
+
+.form-input:disabled {
+    background: var(--bg-secondary);
+    cursor: not-allowed;
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* ===================== RADIO & CHECKBOX STYLES ===================== */
+.radio-group,
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.radio-option,
+.checkbox-option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.radio-option input,
+.checkbox-option input {
+    margin-left: 0.5rem;
+    cursor: pointer;
+    accent-color: var(--accent-color);
+}
+
+.checkbox-option a {
+    color: var(--accent-color);
+}
+
+/* ===================== BOOKING SUMMARY ===================== */
+.booking-summary {
+    background: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border: 2px solid var(--border-color);
+}
+
+.booking-summary h3 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    margin-top: 0;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    color: var(--text-primary);
+}
+
+.summary-row:not(:last-child) {
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* ===================== FORM ACTIONS ===================== */
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.form-actions .btn {
+    flex: 1;
+}
+
+/* ===================== SUCCESS MESSAGE ===================== */
+.success-message {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 3000;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.success-message.active {
+    display: flex;
+}
+
+.success-content {
+    background: var(--bg-primary);
+    border-radius: 12px;
+    padding: 3rem;
+    text-align: center;
+    animation: slideIn 0.3s ease;
+    max-width: 400px;
+}
+
+.success-icon {
+    width: 80px;
+    height: 80px;
+    background: #d4f1d4;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: #2d5a2d;
+    margin: 0 auto 1rem;
+}
+
+[data-theme="dark"] .success-icon {
+    background: rgba(83, 164, 83, 0.3);
+    color: #90ee90;
+}
+
+.success-content h3 {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.success-content p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+/* ===================== RESPONSIVE DESIGN ===================== */
+@media (max-width: 768px) {
+    .booking-header-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .booking-filters {
+        grid-template-columns: 1fr;
+    }
+
+    .booking-trips-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .booking-modal-content {
+        width: 95%;
+        max-height: 95vh;
+        margin: 1rem auto;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .radio-group,
+    .checkbox-group {
+        gap: 0.5rem;
+    }
+
+    .detail-item {
+        padding: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .booking-filters-container {
+        padding: 1rem;
+    }
+
+    .booking-form {
+        padding: 1rem;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .trip-details {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===================== DARK MODE COMPATIBILITY ===================== */
+[data-theme="dark"] .booking-filters-container {
+    background: var(--bg-secondary);
+}
+
+[data-theme="dark"] .filter-select,
+[data-theme="dark"] .filter-range {
+    background: var(--bg-secondary);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .booking-trip-card {
+    background: var(--bg-secondary);
+}
+
+[data-theme="dark"] .detail-item {
+    background: var(--bg-primary);
+}
+
+[data-theme="dark"] .booking-summary {
+    background: var(--bg-primary);
+}

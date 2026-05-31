@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="اختبر معلوماتك - 25 سؤال احترافي حول تسلق الجبال">
+    <title>الأسئلة والاختبارات | TREP DAWOUD</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⛏️</text></svg>">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/effects.css">
+    <style>
+        .quiz-container {
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+        
+        .question-card {
+            background: var(--bg-primary);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .question-number {
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .question-text {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .option {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .option:hover {
+            background: var(--primary-lighter);
+            transform: translateX(-5px);
+        }
+        
+        .option input[type="radio"],
+        .option input[type="checkbox"] {
+            margin-left: 1rem;
+            cursor: pointer;
+        }
+        
+        .option label {
+            flex: 1;
+            cursor: pointer;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(26,71,42,0.3);
+        }
+        
+        .result {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 2rem;
+            display: none;
+        }
+        
+        .result.show {
+            display: block;
+            animation: slideInUp 0.5s ease;
+        }
+        
+        .result h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .score {
+            font-size: 2rem;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body class="contact-page">
+
+<nav class="navbar">
+    <div class="navbar-container container">
+        <div class="navbar-brand">⛏️ TREP DAWOUD</div>
+        <ul class="navbar-nav">
+            <li><a href="../index.html">الرئيسية</a></li>
+            <li><a href="./blog.html">المدونة</a></li>
+            <li><a href="./mountains.html">الجبال</a></li>
+            <li><a href="./refunding.html">الاسترجاع</a></li>
+            <li><a href="./checklist.html">قائمة التجهيز</a></li>
+            <li><a href="./destination.html">الوجهات</a></li>
+            <li><a href="./questions.html" class="active">الأسئلة</a></li>
+            <li><a href="./about.html">من نحن</a></li>
+            <li><a href="./services.html">الخدمات</a></li>
+            <li><a href="./trips.html">الرحلات</a></li>
+            <li><a href="./courses.html">الدورات</a></li>
+            <li><a href="./safety.html">السلامة</a></li>
+            <li><a href="./map.html">الخريطة</a></li>
+            <li><a href="./gallery.html">المعرض</a></li>
+            <li><a href="./contact.html">تواصل معنا</a></li>
+        </ul>
+        <div class="navbar-controls">
+            <button class="theme-toggle">🌙</button>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-content reveal">
+        <h1>اختبر معلوماتك</h1>
+        <p>25 سؤال احترافي حول تسلق الجبال والمغامرات</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="quiz-container" id="quizContainer"></div>
+        <div class="result" id="result">
+            <h2>نتيجتك</h2>
+            <div class="score" id="scoreDisplay"></div>
+            <p id="scoreMessage"></p>
+            <button class="btn btn-primary btn-lg" onclick="location.reload()" style="margin-top: 1rem;">إعادة الاختبار</button>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>عن TREP DAWOUD</h3>
+            <p>منصة متخصصة في تسلق الجبال منذ 2024.</p>
+            <div class="footer-social">
+                <a href="#">f</a>
+                <a href="#">📷</a>
+                <a href="#">𝕏</a>
+                <a href="#">💬</a>
+            </div>
+        </div>
+        <div class="footer-section">
+            <h3>روابط سريعة</h3>
+            <ul>
+                <li><a href="../index.html">الرئيسية</a></li>
+                <li><a href="./questions.html">الأسئلة</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>تواصل معنا</h3>
+            <p>📧 dauodm955@gmail.com</p>
+            <p>📱 +212 696 750 378</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 TREP DAWOUD. جميع الحقوق محفوظة</p>
+    </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="../js/effects.js"></script>
+<script>
+const questions = [
+    { type: "multiple", question: "ما هو أعلى جبل في شمال أفريقيا؟", options: ["جبل توبقال", "جبل ميشليفن", "جبل أطلس"], answer: 0 },
+    { type: "multiple", question: "كم متراً ارتفاع جبل توبقال؟", options: ["3500", "4167", "3800"], answer: 1 },
+    { type: "truefalse", question: "تسلق الجبال آمن تماماً دون معدات حماية", answer: false },
+    { type: "multiple", question: "ما هي أفضل درجة حرارة للتسلق؟", options: ["35 درجة مئوية", "15-25 درجة مئوية", "10 درجات مئوية"], answer: 1 },
+    { type: "truefalse", question: "يمكن تسلق الجبال العالية بدون تدريب", answer: false },
+    { type: "multiple", question: "ما الاختصار UIAA؟", options: ["اتحاد التسلق العالمي", "اتحاد الاتحادات الدولية للتسلق", "جميع ما ذكر"], answer: 2 },
+    { type: "truefalse", question: "خوذة التسلق معتمدة بمعيار CE اختيارية", answer: false },
+    { type: "multiple", question: "كم قطر الحبال الآمنة للتسلق؟", options: ["5-7 ملم", "9.5-10.5 ملم", "15-20 ملم"], answer: 1 },
+    { type: "truefalse", question: "يجب التسلق دائماً مع فريق موثوق", answer: true },
+    { type: "multiple", question: "ما أفضل فصل للتسلق في المغرب؟", options: ["الصيف", "الربيع والخريف", "الشتاء"], answer: 1 },
+    { type: "truefalse", question: "الخوف من الأعلام طبيعي وطبيعي جداً", answer: true },
+    { type: "multiple", question: "كم من الوقت تستغرق رحلة جبل توبقال؟", options: ["يوم واحد", "2-3 أيام", "أسبوع"], answer: 1 },
+    { type: "truefalse", question: "يمكن تسلق الجبال تحت المطر والعواصف", answer: false },
+    { type: "multiple", question: "ما أهم معدة لعملية التسلق؟", options: ["الحبل", "الخوذة", "جميع المعدات مهمة"], answer: 2 },
+    { type: "truefalse", question: "فحص المعدات قبل كل رحلة اختياري", answer: false },
+    { type: "multiple", question: "كم ساعة يستغرق صعود جبل أوكيمدن؟", options: ["2 ساعة", "4-5 ساعات", "8 ساعات"], answer: 1 },
+    { type: "truefalse", question: "يجب إخبار شخص بخطتك قبل التسلق", answer: true },
+    { type: "multiple", question: "ما أفضل وقت لبدء الصعود؟", options: ["الظهيرة", "في الصباح الباكر", "المساء"], answer: 1 },
+    { type: "truefalse", question: "اللياقة البدنية غير مهمة في التسلق", answer: false },
+    { type: "multiple", question: "كم عدد أعضاء الفريق الآمن؟", options: ["1-2 شخص", "3-5 أشخاص", "10+ أشخاص"], answer: 1 },
+    { type: "truefalse", question: "يمكن استخدام معدات قديمة إذا كانت متينة", answer: false },
+    { type: "multiple", question: "ما هو أفضل مصدر للمعلومات عن جبل معين؟", options: ["الإنترنت", "مرشدين محترفين", "جميع المصادر"], answer: 2 },
+    { type: "truefalse", question: "دورات التدريب اختيارية للمبتدئين", answer: false },
+    { type: "multiple", question: "كم يجب أن تبدأ التدريب قبل الرحلة؟", options: ["أسبوع", "شهر", "شهرين"], answer: 2 },
+    { type: "truefalse", question: "الشجاعة تعني عدم الخوف", answer: false }
+];
+
+function generateQuiz() {
+    const container = document.getElementById('quizContainer');
+    
+    questions.forEach((q, index) => {
+        const card = document.createElement('div');
+        card.className = 'question-card reveal';
+        
+        let optionsHTML = '';
+        if (q.type === 'multiple') {
+            optionsHTML = q.options.map((option, i) => `
+                <div class="option">
+                    <input type="radio" name="q${index}" value="${i}" id="q${index}_${i}">
+                    <label for="q${index}_${i}">${option}</label>
+                </div>
+            `).join('');
+        } else {
+            optionsHTML = `
+                <div class="option">
+                    <input type="radio" name="q${index}" value="true" id="q${index}_true">
+                    <label for="q${index}_true">صحيح</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="q${index}" value="false" id="q${index}_false">
+                    <label for="q${index}_false">خطأ</label>
+                </div>
+            `;
+        }
+        
+        card.innerHTML = `
+            <div class="question-number">السؤال ${index + 1} من ${questions.length}</div>
+            <div class="question-text">${q.question}</div>
+            <div class="options">${optionsHTML}</div>
+        `;
+        container.appendChild(card);
+    });
+    
+    const submitBtn = document.createElement('button');
+    submitBtn.className = 'submit-btn';
+    submitBtn.textContent = 'عرض النتيجة';
+    submitBtn.onclick = calculateScore;
+    container.appendChild(submitBtn);
+}
+
+function calculateScore() {
+    let score = 0;
+    
+    questions.forEach((q, index) => {
+        const selected = document.querySelector(`input[name="q${index}"]:checked`);
+        if (!selected) return;
+        
+        if (q.type === 'multiple') {
+            if (parseInt(selected.value) === q.answer) score++;
+        } else {
+            if (selected.value === String(q.answer)) score++;
+        }
+    });
+    
+    const percentage = Math.round((score / questions.length) * 100);
+    const resultDiv = document.getElementById('result');
+    document.getElementById('scoreDisplay').textContent = `${score} / ${questions.length}`;
+    document.getElementById('scoreMessage').textContent = `نسبتك: ${percentage}% - ${percentage >= 80 ? 'ممتاز! 🎉' : percentage >= 60 ? 'جيد جداً 👍' : 'حاول مرة أخرى 💪'}`;
+    
+    resultDiv.classList.add('show');
+    window.scrollTo({ top: resultDiv.offsetTop - 100, behavior: 'smooth' });
+}
+
+document.addEventListener('DOMContentLoaded', generateQuiz);
+</script>
+</body>
+</html>

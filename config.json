@@ -1,0 +1,74 @@
+{
+  "app": {
+    "name": "TREP DAWOUD",
+    "version": "1.0.0",
+    "description": "منصة متخصصة في تسلق الجبال والمغامرات الطبيعية",
+    "currency": "MAD",
+    "language": "ar",
+    "direction": "rtl"
+  },
+  "api": {
+    "baseUrl": "https://trep-dawoud.github.io/trep-dawoud/",
+    "timeout": 30000,
+    "endpoints": {
+      "auth": "/api/auth",
+      "trips": "/api/trips",
+      "courses": "/api/courses",
+      "bookings": "/api/bookings",
+      "users": "/api/users",
+      "reviews": "/api/reviews"
+    }
+  },
+  "colors": {
+    "primary": "#1a472a",
+    "accent": "#ff6b35",
+    "secondary": "#4a5f6f",
+    "success": "#10b981",
+    "error": "#ef4444",
+    "warning": "#f59e0b",
+    "info": "#3b82f6"
+  },
+  "features": {
+    "darkMode": true,
+    "notifications": true,
+    "offlineMode": true,
+    "serviceWorker": true,
+    "pwa": true,
+    "analytics": true
+  },
+  "pagination": {
+    "defaultLimit": 12,
+    "maxLimit": 100
+  },
+  "cache": {
+    "duration": 3600000,
+    "version": "v1"
+  },
+  "social": {
+    "facebook": "https://www.facebook.com/trepdawoud",
+    "instagram": "https://www.instagram.com/trepdawoud",
+    "twitter": "https://www.twitter.com/trepdawoud",
+    "youtube": "https://www.youtube.com/@trepdawoud",
+    "whatsapp": "https://wa.me/966501234567",
+    "email": "info@trepdawoud.com"
+  },
+  "contact": {
+    "phone": "+212696750378",
+    "email": "dauodm955@gmail.com",
+    "address": "طريق عسير، الطائف",
+    "hours": {
+      "weekdays": "09:00 - 18:00",
+      "friday": "15:00 - 22:00",
+      "saturday": "09:00 - 22:00"
+    }
+  },
+  "security": {
+    "corsOrigins": [
+      "https://trep-dawoud.github.io/trep-dawoud",
+      "https://trep-dawoud.github.io/trep-dawoud"
+    ],
+    "csrfProtection": true,
+    "contentSecurityPolicy": true
+  }
+}
+
